@@ -62,8 +62,7 @@ MIDDLEWARE = [
 
 ]
 
-# CORS policy
-CORS_ORIGIN_ALLOW_ANY = True
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'dar.urls'
 
