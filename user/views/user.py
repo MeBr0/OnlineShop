@@ -19,7 +19,7 @@ class UserCreateView(generics.CreateAPIView):
 # get list of all users (admin ONLY)
 class UserListView(generics.ListAPIView):
 
-    permission_classes = (IsAdminUser, )
+    # permission_classes = (IsAdminUser, )
 
     def get_queryset(self):
         return User.objects.all()
