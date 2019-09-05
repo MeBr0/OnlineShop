@@ -61,7 +61,11 @@ MIDDLEWARE = [
 
     # CORS
     'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
 ]
+
+# CORS policy
+CORS_ORIGIN_ALLOW_ANY = True
 
 ROOT_URLCONF = 'dar.urls'
 
@@ -130,9 +134,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     )
 }
-
-# CORS policy
-CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Internationalization
