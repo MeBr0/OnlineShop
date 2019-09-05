@@ -17,4 +17,4 @@ class UserAdmin(admin.ModelAdmin):
 
     group.short_description = 'Groups'
 
-    list_display = ('id', 'username', 'group', 'is_superuser', 'password')
+    list_display = ('id', 'username', 'first_name', 'last_name', 'group', 'is_superuser', 'password')

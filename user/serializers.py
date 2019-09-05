@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'groups', 'is_superuser', 'password', )
+        fields = ('id', 'username', 'groups', 'is_superuser', 'password', "first_name", "last_name", )
 
     def create(self, validated_data):
         # pop and encode password
