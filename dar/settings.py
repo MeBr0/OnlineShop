@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # Modules
     'user',
     'product',
+    'order',
 ]
 
 MIDDLEWARE = [
