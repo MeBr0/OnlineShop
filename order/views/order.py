@@ -7,7 +7,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
 from order.models import Order
-from order.permissions import IsOwner
+from order.permissions import IsOwner, Rejected
 from order.serializers import OrderSerializer
 
 
@@ -43,6 +43,8 @@ class OrderListView(generics.ListCreateAPIView):
             # check user is in group 1 (User)
             if User.objects.filter(username=self.request.user.username, groups=(1, )):
                 return IsAuthenticated(),
+
+            return Rejected(),
 
 
 class OrderView(generics.RetrieveUpdateDestroyAPIView):
