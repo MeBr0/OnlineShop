@@ -27,7 +27,7 @@ class CategoryProductSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
 
     id = serializers.IntegerField(read_only=True)
-    category = CategoryProductSerializer()
+    category = CategoryProductSerializer(read_only=True)
 
     class Meta:
         model = Product
