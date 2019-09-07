@@ -10,3 +10,8 @@ class IsOwner(permissions.BasePermission):
 
         # obj here is a UserProfile instance
         return obj.owner == request.user
+
+
+class Rejected(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return False
