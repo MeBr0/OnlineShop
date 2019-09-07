@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Category(models.Model):
+
     name = models.CharField(max_length=30)
 
     class Meta:
@@ -13,6 +14,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=999)
     image_url = models.CharField(max_length=500)
