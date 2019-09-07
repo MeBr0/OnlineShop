@@ -37,30 +37,3 @@ class OrderSerializer(serializers.ModelSerializer):
             order = Order.objects.create(product=product, **validated_data)
 
         return order
-
-
-# class OrderListSerializer(serializers.ModelSerializer):
-#
-#     orders = OrderSerializer(many=True)
-#
-#     class Meta:
-#         model = Order
-#         fields = ('orders', )
-#
-#     def create(self, validated_data):
-#
-#         orders = validated_data.pop('orders')
-#
-#         order_list = []
-#
-#         for order in orders:
-#             print(order)
-#             print(order.get('product_id'))
-#             product = Product.objects.get(id=order.get('product_id'))
-#
-#             new_order = Order.objects.create(product=product, **order)
-#
-#             order_list.append(new_order)
-#
-#         return order_list
-
