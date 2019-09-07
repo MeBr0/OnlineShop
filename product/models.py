@@ -23,5 +23,5 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return '%s (Category: %s, Count: %s)'.format(self.name, self.category, self.count)
+        return '{} (Category: {}, Count: {})'.format(self.name, self.category, self.count)
 
