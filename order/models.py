@@ -4,6 +4,7 @@ from django.db import models
 from product.models import Product
 
 
+# manager class for model Order
 class OrderManager(models.Manager):
 
     def for_user(self, user):
@@ -11,6 +12,7 @@ class OrderManager(models.Manager):
 
 
 class Order(models.Model):
+
     count = models.IntegerField(default=1)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     status = models.BooleanField(default=False)
