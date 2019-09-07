@@ -18,5 +18,8 @@ class Order(models.Model):
     status = models.BooleanField(default=False)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    # register object of model for owner
+    objects = OrderManager()
+
     def __str__(self):
         return '{} of {} for {}'.format(self.count, self.product, self.owner)
