@@ -1,4 +1,4 @@
-from .user import UserListView, UserCreateView
+from .user import UserView
 
 from .log import login, logout
 
