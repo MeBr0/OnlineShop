@@ -1,12 +1,16 @@
 from django.contrib.auth.models import User
 
 from rest_framework import generics
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 
 from user.serializers import UserSerializer
 
 
 class UserView(generics.ListCreateAPIView):
+
+    pagination_class = PageNumberPagination
+    pagination_class.page_size = 10
 
     def get_queryset(self):
         return User.objects.all()
