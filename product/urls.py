@@ -1,6 +1,6 @@
 from django.urls import path
 
-from product.views import CategoryListView, CategoryView, ProductListView, ProductView
+from product.views import CategoryListView, CategoryView, ProductListView, ProductView, ProductsView
 
 # prefix category/
 urlpatterns = [
@@ -8,5 +8,6 @@ urlpatterns = [
     path('<int:pk>/', CategoryView.as_view()),
     path('<int:pk>/product/', ProductListView.as_view()),
     path('<int:pk2>/product/<int:pk>/', ProductView.as_view()),
+    path('all/', ProductsView.as_view()),
 
 ]

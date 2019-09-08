@@ -23,6 +23,9 @@ INSTALLED_APPS = [
     # CORS
     'corsheaders',
 
+    # Filters
+    'django_filters',
+
     # Modules
     'user',
     'product',
