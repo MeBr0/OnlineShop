@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
-from rest_framework import generics
+from rest_framework import generics, filters
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 
 from product.models import Product
@@ -7,6 +8,13 @@ from product.serializers import ProductSerializer
 
 
 class ProductListView(generics.ListCreateAPIView):
+
+    filter_backends = (filters.OrderingFilter,)
+
+    pagination_class = PageNumberPagination
+    pagination_class.page_size = 12
+
+    ordering_fields = ('name', 'cost', 'count', )
 
     def get_queryset(self):
         return Product.objects.filter(category=self.kwargs['pk'])
@@ -26,6 +34,22 @@ class ProductListView(generics.ListCreateAPIView):
 
             # admin rights
             return IsAdminUser(),
+
+
+class ProductsView(generics.ListAPIView):
+
+    filter_backends = (filters.OrderingFilter,)
+
+    pagination_class = PageNumberPagination
+    pagination_class.page_size = 12
+
+    ordering_fields = ('name', 'cost', 'count', 'category', )
+
+    def get_queryset(self):
+        return Product.objects.all()
+
+    def get_serializer_class(self):
+        return ProductSerializer
 
 
 class ProductView(generics.RetrieveUpdateDestroyAPIView):
