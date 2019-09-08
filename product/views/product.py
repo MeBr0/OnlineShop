@@ -1,15 +1,21 @@
 from django.contrib.auth.models import User
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, filters
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 
+from product.filters import ProductFilter
 from product.models import Product
 from product.serializers import ProductSerializer
 
 
 class ProductListView(generics.ListCreateAPIView):
 
-    filter_backends = (filters.OrderingFilter,)
+    filter_backends = (DjangoFilterBackend,
+                       filters.SearchFilter,
+                       filters.OrderingFilter)
+
+    filter_class = ProductFilter
 
     pagination_class = PageNumberPagination
     pagination_class.page_size = 12
@@ -38,7 +44,11 @@ class ProductListView(generics.ListCreateAPIView):
 
 class ProductsView(generics.ListAPIView):
 
-    filter_backends = (filters.OrderingFilter,)
+    filter_backends = (DjangoFilterBackend,
+                       filters.SearchFilter,
+                       filters.OrderingFilter)
+
+    filter_class = ProductFilter
 
     pagination_class = PageNumberPagination
     pagination_class.page_size = 12
