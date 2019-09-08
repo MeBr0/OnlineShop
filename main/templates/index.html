@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="header">
+        <h1>DAR PROJECT BACK-END</h1>
+    </div>
+
+    <div class="about">
+        <div class="inner_about">
+            <h1>About. {{name}}</h1>
+
+            <p>This api was written for React project at internship at Dar</p>
+            <p>Back-end and database for sport shop, including products with appropriate category, also there is orders
+            that users can request. Back-end is full RESTful API. All possible urls for this api listed below</p>
+            <p>Created by mebr0<sup>©</sup></p>
+
+        </div>
+    </div>
+
+    <div class="urls">
+        <div class="inner_urls">
+            <div class="main app" style="height: 100px;">
+                <div class="heading">MAIN APP</div>
+
+                <div class="item">
+                    <div class="url">/</div>
+                    <div class="methods">GET</div>
+                    <div class="description">Home page</div>
+                </div>
+            </div>
+            <div class="movie app" style="height: 250px;">
+                <div class="heading">PRODUCT APP</div>
+
+                <div class="item">
+                    <div class="url">category/</div>
+                    <div class="methods">GET POST</div>
+                    <div class="description">List and Create categories</div>
+                </div>
+                <div class="item">
+                    <div class="url">category/1/</div>
+                    <div class="methods">GET PUT DELETE</div>
+                    <div class="description">Retrieve, Update and Delete category</div>
+                </div>
+                <div class="item">
+                    <div class="url">category/1/product/</div>
+                    <div class="methods">GET POST</div>
+                    <div class="description">List and Create products of category</div>
+                </div>
+                <div class="item">
+                    <div class="url">category/1/product/2/</div>
+                    <div class="methods">GET PUT DELETE</div>
+                    <div class="description">Retrieve, Update and Delete product of category</div>
+                </div>
+            </div>
+            <div class="session app" style="height: 200px;">
+                <div class="heading">ORDER APP</div>
+
+                <div class="item">
+                    <div class="url">order/</div>
+                    <div class="methods">GET POST</div>
+                    <div class="description">List and Create orders</div>
+                </div>
+                <div class="item">
+                    <div class="url">order/1/</div>
+                    <div class="methods">GET PUT DELETE</div>
+                    <div class="description">Retrieve, Update and Delete order</div>
+                </div>
+                <div class="item">
+                    <div class="url">order/many/</div>
+                    <div class="methods">POST</div>
+                    <div class="description">Create multiple orders</div>
+                </div>
+            </div>
+            <div class="user app" style="height: 250px">
+                <div class="heading">USER APP</div>
+
+                <div class="item">
+                    <div class="url">user/</div>
+                    <div class="methods">GET POST</div>
+                    <div class="description">List and Create users</div>
+                </div>
+                <div class="item">
+                    <div class="url">user/login/</div>
+                    <div class="methods">POST</div>
+                    <div class="description">Login single user</div>
+                </div>
+                <div class="item">
+                    <div class="url">user/logout/</div>
+                    <div class="methods">POST</div>
+                    <div class="description">Logout single user</div>
+                </div>
+                <div class="item">
+                    <div class="url">user/me/</div>
+                    <div class="methods">GET</div>
+                    <div class="description">Retrieve current user</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
